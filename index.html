@@ -52,8 +52,6 @@
      <iframe src="bar-chart.html" style="width:100%; height: 650px; border: 0; display: inline-block;"></iframe>
    </div>
 
-<!--center-->
-<div class="row text-center">
    <!--why decreasing numbers-->
    <div class="row map-wrapper">
      <div class="col-md-8 col-sm-12 text">
@@ -68,17 +66,25 @@
 
 
      <!-- map -->
-     <div class="row map">
-     <svg viewBox="0 0 860 500"
-         preserveAspectRatio="xMinYMin meet" class="map-container" style="margin-left: auto; margin-right: auto"></svg>
+     <div class="row text">
+       <div class="col-md-12">
+         <h1>Monarch Migration</h1>
+         The Monarch butterfly travels further than any other butterfly (some say of any bug); some butterflies will fly over 3000 miles before arriving at their location.
+         They will then hibernate through the winter and awaken in the spring to fly north and lay eggs.
+         <br>Click the button to see what path many Monarchs take on their migration.
+       </div>
+     </div>
      <div class="row text-center">
-            <div class="start-button" style="display:inline-block;" onclick="report()">
+            <div class="start-button" style="display:inline-block;margin-top:20px" onclick="report()">
               <button>Start Animation</button>
             </div>
       </div>
+     <div class="row map">
+     <svg viewBox="0 0 860 500"
+         preserveAspectRatio="xMinYMin meet" class="map-container" style="margin-left: auto; margin-right: auto"></svg>
     </div>
   </div>
-</div>
+
 <div class="row">
   <div class="col-md-8 col-sm-12 text">
     <h1>Why Butterflies Matter</h1>
