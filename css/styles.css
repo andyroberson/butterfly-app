@@ -16,7 +16,7 @@ button:hover {
 }
 
 .butterfly-top {
-  background: url("../monarch-butterfly-migration.png");
+  background: url("../images/monarch-butterfly-migration.png");
   background-size: cover;
   width: 100%;
   position:absolute;
@@ -33,7 +33,7 @@ button:hover {
 }
 
 .illustration {
-  background: url("../monarch-butterfly-illustration.png");
+  background: url("../images/monarch-butterfly-illustration.png");
   background-repeat: no-repeat;
   background-size: auto 150px;
   width: auto;
