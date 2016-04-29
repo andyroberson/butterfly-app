@@ -1,9 +1,7 @@
 # butterfly-app
-Assignment for Advanced Multimedia class; D3, Angular, express.
+Assignment for Advanced Multimedia class; D3, Angular, Node, express.
 
-Project working with D3 and JSON.
-
-This application information about butterflies and their population.
+This application gives information about Monarch butterflies and their population, and why butterflies are important.
 
 To use on view on your own machine, follow the following steps:
 
