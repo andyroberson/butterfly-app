@@ -1,0 +1,28 @@
+{
+  "name": "butterfly-app",
+  "version": "1.0.0",
+  "description": "Butterfly application showing poopulation using node, angular, d3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyroberson/butterfly-app"
+  },
+  "author": "andyroberson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyroberson/butterfly-app"
+  },
+  "homepage": "https://github.com/andyroberson/butterfly-app#readme",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
+    "d3": "^3.5.16",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
