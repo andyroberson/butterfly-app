@@ -114,6 +114,7 @@
                   Click the arrows to sort the table, or use the search bar to find a certain species, status, or habitat. Click on the name of the butterfly to learn more about it or its status.
                   <br>
                 </div>
+                
                   <!-- <div class="key">
                     <div class="row">
                       <div class="col-md-3"></div>
@@ -131,24 +132,20 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <!-- <th></th> -->
                         <th ng-click="base.setSort('img')">Image <i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('name')">Name<i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('status')">Status <i class="fa fa-sort"></i></th>
-                        <th ng-click="base.setSort('habitat')">habitat <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('habitat')">Habitat <i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('year')">Year Listed <i class="fa fa-sort"></i></th>
-                        <!--th ng-click="base.setSort('shootingPercent')">Shooting Percentage <i class="fa fa-sort"></i></th-->
                       </tr>
                     </thead>
                     <tbody>
                       <tr ng-repeat="butterfly in base.butterflies | filter:terms | orderBy:base.sort:base.direction">
-                        <!-- <td><img ng-src="{{player.images[0]}}" height="100" width="100" border="0"/></td> -->
                         <td><img ng-src="images/{{ butterfly.img }}" height="auto" width="100"/></td>
                         <td><a href="{{butterfly.link}}">{{ butterfly.name }}</a></td>
                         <td>{{ butterfly.status }}</td>
                         <td>{{ butterfly.habitat }}</td>
                         <td>{{ butterfly.year }}</td>
-                        <!--td>{{ base.shootingPercentage('points', 'fieldGoalsAttempted', 'freeThrowsAttempted') }}</td-->
                       </tr>
                     </tbody>
                   </table>
