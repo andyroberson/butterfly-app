@@ -2,6 +2,19 @@ body {
   font-family: Helvetica;
 }
 
+button {
+  background: #FF7F00;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-transition: .7s ease;
+  transition: .7s ease;
+}
+
+button:hover {
+  background: orangered;
+}
+
 .butterfly-top {
   background: url("../monarch-butterfly-migration.png");
   background-size: cover;
