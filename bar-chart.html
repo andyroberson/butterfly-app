@@ -57,6 +57,8 @@ body {
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <svg viewBox="0 0 960 500"
+  	  preserveAspectRatio="xMinYMin meet" class="bar-chart"></svg>
 <script>
 
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
@@ -88,10 +90,10 @@ var tip = d3.tip()
     return "<strong>hectares:</strong> <span style='color:orangered'>" + d.hectares + "</span>";
   })
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select(".bar-chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 svg.call(tip);
