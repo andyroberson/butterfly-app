@@ -31,8 +31,8 @@ var path = d3.geo.path()
 var g = svg.append("g");
 
 // load tracking information
-d3.json("track2.json", function(error, track) {
-d3.json("world-110m2.json", function(error, topology) {
+d3.json("js/track.json", function(error, track) {
+d3.json("js/world.json", function(error, topology) {
 
 var color_scale = d3.scale.quantile().domain([1, 5]).range(colorbrewer.YlOrRd[5]);
 
