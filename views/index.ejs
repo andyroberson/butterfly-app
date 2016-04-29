@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Monarch Butterflies</title>
+
+        <!--favicon-->
+        <link rel="shortcut icon" type="image/x-icon" href="images/monarch-favicon.ico">
 
         <!-- angular -->
         <script type="text/javascript" src="js/angular.js"></script>
@@ -18,6 +22,8 @@
     </head>
 
     <body>
+
+    <!--butterfly background at top; image by National Geographic-->
     <div class="background">
       <div class="butterfly-top"></div>
     </div>
@@ -45,7 +51,7 @@
         Below, a chart shows the decrease in the amount of space these colonies occupy during the winter.
     </div>
 
-    <!-- line chart thing -->
+    <!-- line chart -->
    <div class="row text-center" style="margin-top: 30px">
      <br>
      <div class="col-md-12"><h2>Total Area Occupied by Monarch Colonies at Overwintering Sites in Mexico</h2></div>
@@ -99,6 +105,7 @@
 
 </div>
 
+    <!--angular app-->
     <div ng-app="myApp" class="row" style="margin-top: 40px">
       <nav class="navbar navbar-default" style="padding: 5px;">
         <div class="col-xs-6" style="text-align: left;"><h1>Butterflies in Danger</h1></div>
@@ -134,6 +141,7 @@
                   <table class="table">
                     <thead>
                       <tr>
+                        <!--click and sort-->
                         <th class="image-th" ng-click="base.setSort('img')">Image <i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('name')">Name<i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('status')">Status <i class="fa fa-sort"></i></th>
@@ -142,6 +150,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <!--repeat through butterfly json-->
                       <tr ng-repeat="butterfly in base.butterflies | filter:terms | orderBy:base.sort:base.direction">
                         <td class="image-th"><img class="table-img" ng-src="images/{{ butterfly.img }}"/></td>
                         <td><a href="{{butterfly.link}}">{{ butterfly.name }}</a></td>
@@ -170,8 +179,6 @@
     <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
     <script src="js/migration-map.js"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <!-- <script src="js/bar-chart.js"></script> -->
-
 
     </body>
 </html>
