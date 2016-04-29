@@ -49,7 +49,7 @@
    <div class="row text-center">
      <br>
      <div class="col-md-12"><h2>Total Area Occupied by Monarch Colonies at Overwintering Sites in Mexico</h2></div>
-     <iframe src="/bar-chart" style="width:100%; height: 650px; border: 0; display: inline-block;"></iframe>
+     <iframe src="bar-chart.html" style="width:100%; height: 650px; border: 0; display: inline-block;"></iframe>
    </div>
 
 <!--center-->
@@ -138,7 +138,7 @@
                     <tbody>
                       <tr ng-repeat="butterfly in base.butterflies | filter:terms | orderBy:base.sort:base.direction">
                         <!-- <td><img ng-src="{{player.images[0]}}" height="100" width="100" border="0"/></td> -->
-                        <td><img ng-src="images/{{ butterfly.img }}" height="auto" width="100"/></td>
+                        <td><img ng-src="imgs/{{ butterfly.img }}" height="auto" width="100"/></td>
                         <td><a href="{{butterfly.link}}">{{ butterfly.name }}</a></td>
                         <td>{{ butterfly.status }}</td>
                         <td>{{ butterfly.habitat }}</td>

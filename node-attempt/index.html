@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- angular -->
+        <script type="text/javascript" src="js/angular.js"></script>
+
+        <!-- script -->
+        <script type="text/javascript" src="js/app.js"></script>
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/footer.css" />
+
+        <!--icons-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+    <div class="background">
+      <div class="butterfly-top"></div>
+    </div>
+    <div class="container" style="margin-top: 20px">
+
+    <!--title and description-->
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <h1>The Monarch Butterfly</h1>
+        The Monarch butterfly is common throughout North America and is known for its easily-recognized, bright orange wings.
+        The population of the Monarch butterfly has been decreasing and <a href="http://www.nbcnews.com/science/environment/monarch-butterflies-face-danger-quasi-extinction-hope-wing-n556316">recent studies</a> suggest the possibility of extinction in the next 20 years.
+      </div>
+
+      <!--color pencil-->
+      <div class="col-md-4 col-sm-12 text-center">
+          <div class="illustration"></div>
+          <div class="caption">Illustration by Andy Roberson</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <h1>Decreasing Numbers</h1>
+        The Monarch's dwindling population is especially apparent when they all gather together at their hibernation sites.
+        Below, a chart shows the decrease in the amount of space these colonies occupy during the winter.
+    </div>
+
+    <!-- line chart thing -->
+   <div class="row text-center">
+     <br>
+     <div class="col-md-12"><h2>Total Area Occupied by Monarch Colonies at Overwintering Sites in Mexico</h2></div>
+     <iframe src="/bar-chart" style="width:100%; height: 650px; border: 0; display: inline-block;"></iframe>
+   </div>
+
+<!--center-->
+<div class="row text-center">
+   <!--why decreasing numbers-->
+   <div class="row map-wrapper">
+     <div class="col-md-8 col-sm-12 text">
+       <h1>Why Fewer Monarchs?</h1>
+       Monarch butterflies migrate to Mexico and California during the winter and hibernate in colonies until Spring.
+       This long hibernation during which they are especially vulnerable could be one reason for their decrease in population.
+       Another theory says it's because the Milkweed, a plant that the Monarch relies on throughout its life, is being killed by herbicide use
+       and fewer Milkweeds are causing a decline in the Monarch population. Others say that fewer nectar sources is the cause for the population decline.
+     </div>
+     <div class="col-md-4 col-sm-12">
+     </div>
+
+
+     <!-- map -->
+     <div class="row map">
+     <svg viewBox="0 0 860 500"
+         preserveAspectRatio="xMinYMin meet" class="map-container" style="margin-left: auto; margin-right: auto"></svg>
+     <div class="row text-center">
+            <div class="start-button" style="display:inline-block;" onclick="report()">
+              <button>Start Animation</button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-sm-12 text">
+    <h1>Why Butterflies Matter</h1>
+    No matter the reason, butterfly extinction is a serious problem.
+    Butterflies are the 3rd biggest pollinators, and help plants and flowers live.
+    They are also considered good indicators of the health of an environment – the more butteflies there are in an area, the healthier the environment is considered to be.
+    The table below shows butterflies in the United States facing threats to their species.
+  </div>
+  <div class="col-md-4 col-sm-12">
+  </div>
+
+</div>
+
+    <div ng-app="myApp" class="row" style="margin-top: 40px">
+      <nav class="navbar navbar-default" style="padding: 5px;">
+        <div class="col-xs-6" style="text-align: left;"><h1>Butterflies in Danger</h1></div>
+        <div class="col-xs-4" style="text-align: center; float: right;">
+          <ul class="nav navbar-nav">
+              <input type="text" ng-model="terms" class="form-control" style="margin: 15px; float: left;" placeholder="Search" />
+          </ul>
+        </div>
+        <div class="col-xs-2"></div>
+      </nav>
+
+        <div class="container2" ng-controller="BaseController as base">
+            <div class="row">
+                <div class="col-xs-12">
+                  Click the arrows to sort the table, or use the search bar to find a certain species, status, or habitat. Click on the name of the butterfly to learn more about it or its status.
+                  <br>
+                </div>
+                  <!-- <div class="key">
+                    <div class="row">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-6">
+                      <h2 class="text-center">Key</h2>
+                      <div class="col-md-4"><b>Endangered</b> - "A species in danger of extinction throughout all or a significant portion of its range."</div>
+                      <div class="col-md-4"><b>Threatened</b> -  "A species "likely to become endangered within the foreseeable future throughout all or a significant portion of its range.</div>
+                      <div class="col-md-4"><b>Candidate</b> - "A species under consideration for official listing for which there is sufficient information to support listing."</div>
+                      <div class="col-md-12"><b>Similarity of Appearance (threatened)</b> - "Threatened due to similarity of appearance. A species that is threatened due to similarity of appearance with another listed species and is listed for its protection. Species listed as this are not biologically endangered or threatened."</div>
+                    </div>
+                    <div class="col-md-3"></div>
+                    </div>
+                  </div> -->
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- <th></th> -->
+                        <th ng-click="base.setSort('img')">Image <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('name')">Name<i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('status')">Status <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('habitat')">habitat <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('year')">Year Listed <i class="fa fa-sort"></i></th>
+                        <!--th ng-click="base.setSort('shootingPercent')">Shooting Percentage <i class="fa fa-sort"></i></th-->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="butterfly in base.butterflies | filter:terms | orderBy:base.sort:base.direction">
+                        <!-- <td><img ng-src="{{player.images[0]}}" height="100" width="100" border="0"/></td> -->
+                        <td><img ng-src="images/{{ butterfly.img }}" height="auto" width="100"/></td>
+                        <td><a href="{{butterfly.link}}">{{ butterfly.name }}</a></td>
+                        <td>{{ butterfly.status }}</td>
+                        <td>{{ butterfly.habitat }}</td>
+                        <td>{{ butterfly.year }}</td>
+                        <!--td>{{ base.shootingPercentage('points', 'fieldGoalsAttempted', 'freeThrowsAttempted') }}</td-->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+        </div>
+      </div> <!--end div tag for angular container -->
+    </div>
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="container">
+          <p class="text-muted">Information and data from <a href="http://www.fws.gov/">http://www.fws.gov/</a>, <a href="www.worldwildlife.org">World Wildlife Fund</a>, <a href="nationalgeographic.com">National Geographic</a>, Monarch app by Andrea Roberson </p>
+        </div>
+    </footer>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v0.min.js"></script>
+    <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="js/migration-map.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <!-- <script src="js/bar-chart.js"></script> -->
+
+
+    </body>
+</html>
