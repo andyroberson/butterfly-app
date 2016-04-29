@@ -42,6 +42,16 @@ button:hover {
   margin-right: auto;
 }
 
+.infographic {
+  background: url("../images/monarch-butterfly-01.png");
+  background-repeat: no-repeat;
+  background-size: auto 150px;
+  width: auto;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .caption {
   font-size: 10px;
 }
