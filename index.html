@@ -1,136 +1,63 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<html>
+    <head>
 
-body {
-  font: 10px sans-serif;
-}
+        <!-- angular -->
+        <script type="text/javascript" src="js/angular.js"></script>
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
+        <!-- script -->
+        <script type="text/javascript" src="js/app.js"></script>
 
-.bar {
-  fill: orange;
-}
+        <!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <!--icons-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
 
-.bar:hover {
-  fill: orangered ;
-}
+    <body ng-app="myApp">
+      <nav class="navbar navbar-default" style="padding: 10px;">
+        <div class="col-xs-6" style="text-align: center;"><h2>butterflies</h2></div>
+        <div class="col-xs-4" style="text-align: center; float: right;">
+          <ul class="nav navbar-nav">
+              <input type="text" ng-model="terms" class="form-control" style="margin: 15px; float: left;" placeholder="Search" />
+          </ul>
+        </div>
+        <div class="col-xs-2"></div>
+      </nav>
 
-.x.axis path {
-  display: none;
-}
+        <div class="container" ng-controller="BaseController as base">
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 14px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
+            <div class="row">
+                <div class="col-xs-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- <th></th> -->
+                        <th ng-click="base.setSort('name')">Name<i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('status')">Status <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('habitat')">habitat <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('year')">Year Listed <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('img')">Img <i class="fa fa-sort"></i></th>
+                        <!--th ng-click="base.setSort('shootingPercent')">Shooting Percentage <i class="fa fa-sort"></i></th-->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="butterfly in base.butterflies | filter:terms | orderBy:base.sort:base.direction">
+                        <!-- <td><img ng-src="{{player.images[0]}}" height="100" width="100" border="0"/></td> -->
+                        <td>{{ butterfly.name }}</td>
+                        <td>{{ butterfly.status }}</td>
+                        <td>{{ butterfly.habitat }}</td>
+                        <td>{{ butterfly.year }}</td>
+                        <td>{{ butterfly.img }}</td>
+                        <!--td>{{ base.shootingPercentage('points', 'fieldGoalsAttempted', 'freeThrowsAttempted') }}</td-->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
 
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-</style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-<script>
+        </div>
 
-var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-// var formatPercent = d3.format(".0%");
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    // .tickFormat(formatPercent);
-
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .style('font-size', "14px")
-  .html(function(d) {
-    return "<strong>hectares:</strong> <span style='color:orangered'>" + d.hectares + "</span>";
-  })
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-svg.call(tip);
-
-d3.tsv("population.tsv", type, function(error, data) {
-  x.domain(data.map(function(d) { return d.year; }));
-  y.domain([0, d3.max(data, function(d) { return d.hectares; })]);
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("hectares");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.year); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.hectares); })
-      .attr("height", function(d) { return height - y(d.hectares); })
-      .on('mouseover', tip.show)
-      .on('mouseout', tip.hide)
-
-});
-
-function type(d) {
-  d.hectares = +d.hectares;
-  return d;
-}
-
-</script>
+    </body>
+</html>
