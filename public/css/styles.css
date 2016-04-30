@@ -91,6 +91,14 @@ h2 {
   display: auto;
 }
 
+.td-link:hover {
+  border-bottom: 2px solid #7BAFD4;
+  color: #7BAFD4;
+  cursor:pointer;
+}
+
+/*responsiveness*/
+
 @media only screen and (max-width: 700px) {
     .map-wrapper {
       margin-top: -300px;
